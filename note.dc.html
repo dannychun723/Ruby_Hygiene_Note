@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Ruby’s Dental Hygiene Clinical Note</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+--paper:#FFFFFF;
+--card:#FFFFFF;
+--surf:#F7F6F3;
+--ink:#37352F;
+--ink2:#787774;
+--ink3:#9B9A97;
+--rule:#E9E9E7;
+--rule2:#F1F1EF;
+--blank:#FDECC8;
+--selbg:#D3E5EF;
+--selbd:#A7CBE3;
+--accent:#2383E2;
+--pale:#F1F1EF;
+--oxblood:#D44C47;
+--focus:#2383E2;
+--serif:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+--sans:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;
+--mono:'IBM Plex Mono',Menlo,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;-webkit-text-size-adjust:100%;}
+a{color:var(--oxblood);text-decoration:none;}
+a:hover{color:#5E2A30;text-decoration:underline;}
+input,textarea,button{font-family:inherit;font-size:inherit;color:inherit;border-radius:4px;}
+button{cursor:pointer;-webkit-appearance:none;appearance:none;}
+input:focus-visible,textarea:focus-visible,button:focus-visible{outline:2px solid var(--focus);outline-offset:1px;}
+::placeholder{color:var(--ink3);}
+input,textarea{min-width:0;width:100%;box-sizing:border-box;}
+[data-view] div,[data-view] section,[data-view] label{min-width:0;}
+</style>
+</helmet>
+
+<div data-app style="max-width:520px;margin:0 auto;background:var(--paper);min-height:100vh;padding-bottom:112px">
+
+<header style="position:sticky;top:0;z-index:30;background:var(--paper);border-bottom:1px solid var(--rule);padding:12px 18px 0">
+<div style="display:flex;flex-direction:column;gap:3px">
+<h1 style="font:700 23px/1.25 var(--sans);margin:0;letter-spacing:-0.01em">Ruby’s Dental Hygiene Clinical Note</h1>
+<span style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Locum · working copy</span>
+</div>
+<div style="display:flex;gap:26px;margin-top:12px">
+<button data-view-tab="library" style="background:none;border:none;padding:0 0 9px;font:500 14px/1 var(--sans);color:var(--ink3);border-bottom:2px solid transparent;min-height:34px">Library</button>
+<button data-view-tab="note" style="background:none;border:none;padding:0 0 9px;font:500 14px/1 var(--sans);color:var(--ink);border-bottom:2px solid var(--ink);min-height:34px">Note</button>
+<button data-view-tab="doc" style="background:none;border:none;padding:0 0 9px;font:500 14px/1 var(--sans);color:var(--ink3);border-bottom:2px solid transparent;min-height:34px">Download</button>
+</div>
+</header>
+
+<!-- ===================== NOTE ===================== -->
+<main data-view="note" data-screen-label="Note" style="padding:0 18px">
+
+<div style="padding:18px 0 16px;border-bottom:1px solid var(--rule)">
+<div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Appointment Type</div>
+<div data-group="appt" data-mode="single" style="display:grid;grid-template-columns:1fr 1fr;gap:7px;font:500 14.5px/1.15 var(--sans)">
+<button data-chip="Routine hygiene" style="padding:14px 10px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:48px">Routine Hygiene</button>
+<button data-chip="Perio cons" style="padding:14px 10px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:48px">Perio Cons</button>
+<button data-chip="Step 2 tx" style="padding:14px 10px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:48px">Step 2 TX</button>
+<button data-chip="Re-evaluation" style="padding:14px 10px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:48px">Re-Evaluation</button>
+</div>
+<p style="font:400 12px/1.4 var(--sans);color:var(--ink2);margin:10px 0 0;display:flex;gap:7px"><span style="font-weight:600">↺</span><span>Switching type keeps everything you have already entered. Only the sections below change.</span></p>
+</div>
+
+<div style="display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--rule)">
+<label for="REF" style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Patient Ref</label>
+<input id="REF" data-slot="REF" style="flex:1;min-width:0;font:500 15px/1 var(--mono);letter-spacing:0.04em;padding:11px;background:var(--surf);border:1px solid var(--rule);min-height:44px">
+<label for="NURSE" style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Nurse</label>
+<input id="NURSE" data-slot="NURSE" style="width:84px;font:400 15px/1 var(--sans);padding:11px;background:var(--card);border:1px solid var(--rule);min-height:44px">
+</div>
+
+<div style="margin:16px 0 0;background:var(--surf);border-radius:4px;padding:12px">
+<div style="display:flex;align-items:center;gap:9px;margin-bottom:10px">
+<span style="font:600 13.5px/1.3 var(--sans);color:var(--ink)">Dictate the Appointment</span>
+<span data-dictate-state style="font:400 12px/1.3 var(--sans);color:var(--ink3);flex:1">Off</span>
+</div>
+<textarea data-transcript rows="3" placeholder="Speak, or type/paste the conversation here — e.g. “smoker, 10 cigarettes a day for 12 years, 14 units a week, electric brush, IDB, MGI 2, OH average, BOP 28%, plaque 45%, TePe 0.6 red, recall 6 months”" style="width:100%;box-sizing:border-box;font:400 13.5px/1.5 var(--sans);padding:10px 11px;background:var(--card);border:1px solid var(--rule);border-radius:4px;resize:vertical"></textarea>
+<div style="display:flex;gap:7px;margin-top:9px">
+<button data-mic style="flex:1;padding:12px 10px;border:1px solid var(--rule);background:var(--card);color:var(--ink);font:600 13px/1 var(--sans);min-height:44px">● Record</button>
+<button data-fill style="flex:1;padding:12px 10px;border:1px solid var(--accent);background:var(--accent);color:#FFFFFF;font:600 13px/1 var(--sans);min-height:44px">Fill Fields</button>
+<button data-clear-transcript style="padding:12px 12px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);font:600 13px/1 var(--sans);min-height:44px">Clear</button>
+</div>
+<p data-fill-report style="font:400 12px/1.45 var(--sans);color:var(--ink2);margin:10px 0 0">Nothing is sent anywhere and no audio is kept — the words stay in this browser. Check every field it fills.</p>
+</div>
+
+<div style="display:flex;align-items:flex-start;gap:9px;padding:13px 0 0">
+<span data-choicecount style="font:500 12px/1.4 var(--sans);letter-spacing:0.06em;background:var(--pale);color:var(--ink);padding:6px 7px;white-space:nowrap">13 decisions</span>
+<p style="font:400 12px/1.45 var(--sans);color:var(--ink2);margin:0">That is everything this appointment type asks of you. Everything in grey is written for you.</p>
+</div>
+
+<section data-types="Routine hygiene,Perio cons,Step 2 tx,Re-evaluation" style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">History</h2>
+<span data-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Complete</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">MH</div><div data-group="mh" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="No change from last visit reported" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">No change from last visit reported</button>
+<button data-chip="Changes noted" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Changes Noted</button></div></div>
+<div data-types="x-changes"><div style="display:flex;flex-direction:column;gap:7px">
+<label for="MHDETAIL" style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">MH Changes</label>
+<input id="MHDETAIL" data-slot="MHDETAIL" placeholder="e.g. now on amlodipine 5mg" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">FSH — Smoking ★</div><div data-group="smoking" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Non-smoker" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Non-smoker</button>
+<button data-chip="Ex-smoker" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Ex-smoker</button>
+<button data-chip="Smoker" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Smoker</button></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:11px"><div style="display:flex;flex-direction:column;gap:7px">
+<label for="CIG" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Cigarettes / Day</label>
+<input id="CIG" data-slot="CIG" placeholder="e.g. 10" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="YEARS" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">For (Years)</label>
+<input id="YEARS" data-slot="YEARS" placeholder="e.g. 12" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div>
+<div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">advice given as per NICE guidelines</div></div>
+<div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="ALC" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Alcohol — Units / Week</label>
+<input id="ALC" data-slot="ALC" placeholder="e.g. 14" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">advice given</div></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">DH — Toothbrush ★</div><div data-group="brush" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Electric" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Electric</button>
+<button data-chip="Manual" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Manual</button></div>
+<div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">2X daily with fluoride toothpaste</div>
+<div style="margin-top:14px"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">DH — Interdental ★</div><div data-group="interdental" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Floss" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Floss</button>
+<button data-chip="Flossette" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Flossette</button>
+<button data-chip="IDB" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">IDB</button>
+<button data-chip="Water flosser" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Water Flosser</button>
+<button data-chip="None" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">None</button></div>
+<div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">1X daily</div></div></div>
+</div>
+</section>
+
+<section data-types="Routine hygiene,Perio cons,Step 2 tx,Re-evaluation" style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">Examination</h2>
+<span data-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Complete</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">E/O: facial symmetry, TMJs, lymph nodes, lips – NAD<br>I/O: cheek, tongue, floor of mouth, hard and soft palate – NAD</div></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Gingivae — MGI</div><div data-group="mgi" data-mode="single" style="display:flex;gap:7px;font:500 15px/1.15 var(--mono)"><button data-chip="0" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">0</button><button data-chip="1" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">1</button><button data-chip="2" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">2</button><button data-chip="3" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">3</button><button data-chip="4" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">4</button></div></div>
+<div data-types="Routine hygiene,Perio cons,Re-evaluation"><button data-check="Oral cancer screening carried out" style="display:flex;align-items:center;gap:12px;background:none;border:none;padding:8px 0;font:400 15px/1 var(--sans);color:var(--ink);text-align:left;min-height:48px"><span style="width:22px;height:22px;flex:0 0 22px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);display:flex;align-items:center;justify-content:center;font:600 13px/1 var(--sans)">✓</span>Oral cancer screening carried out</button></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">OH Level ★</div><div data-group="oh" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Good" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Good</button>
+<button data-chip="Average" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Average</button>
+<button data-chip="Inadequate" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Inadequate</button></div></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:11px"><div style="display:flex;flex-direction:column;gap:7px">
+<label for="BOP" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Bleeding</label>
+<input id="BOP" data-slot="BOP" placeholder="e.g. BOP 28%" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="PLAQUE" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Plaque</label>
+<input id="PLAQUE" data-slot="PLAQUE" placeholder="e.g. 45%" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div>
+<div style="display:flex;flex-direction:column;gap:7px">
+<label for="CALCULUS" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Calculus</label>
+<input id="CALCULUS" data-slot="CALCULUS" placeholder="e.g. supra- and subgingival, lower anteriors" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div>
+<div data-types="Routine hygiene"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Perio – BPE as charted; pockets as charted</div></div>
+<div data-types="Perio cons"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Perio – full perio charting done</div></div>
+<div data-types="Re-evaluation"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Perio – full perio chart updated</div></div>
+</div>
+</section>
+
+<section data-types="Routine hygiene,Perio cons,Re-evaluation" style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">Diagnosis</h2>
+<span data-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Complete</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div data-types="Routine hygiene"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Provisional Diagnosis ★</div><div data-group="dxkind" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Gingivitis" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Gingivitis</button>
+<button data-chip="Periodontitis" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Periodontitis</button></div></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Extent ★</div><div data-group="extent" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Localised" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Localised</button>
+<button data-chip="Generalised" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Generalised</button>
+<button data-chip="Molar-incisor pattern" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Molar-Incisor Pattern</button></div></div>
+<div data-types="Perio cons,Re-evaluation" style="display:grid;grid-template-columns:1.4fr 1fr;gap:11px">
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Stage</div><div data-group="stage" data-mode="single" style="display:flex;gap:6px;font:500 14px/1.15 var(--mono)"><button data-chip="I" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">I</button><button data-chip="II" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">II</button><button data-chip="III" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">III</button><button data-chip="IV" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">IV</button></div></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Grade</div><div data-group="grade" data-mode="single" style="display:flex;gap:6px;font:500 14px/1.15 var(--mono)"><button data-chip="A" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">A</button><button data-chip="B" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">B</button><button data-chip="C" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">C</button></div></div>
+</div>
+<div data-types="Perio cons,Re-evaluation"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Stability ★</div><div data-group="stability" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Currently unstable" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Currently Unstable</button>
+<button data-chip="In remission" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">In Remission</button>
+<button data-chip="Stable" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Stable</button></div></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Risk Factors ★</div><div data-group="risk" data-mode="multi" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Suboptimal OH" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Suboptimal OH</button>
+<button data-chip="Smoking" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Smoking</button></div></div>
+<div data-types="Routine hygiene"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Perio Cons Recommended — Patient Response ★</div><div data-group="consresp" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Patient rejected" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Patient Rejected</button>
+<button data-chip="Preferred to discuss with dentist" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Preferred to discuss with dentist</button>
+<button data-chip="Will consider and decide later" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Will consider and decide later</button></div>
+<div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">recommended perio cons for full periodontal charting and diagnosis with staging and grading next time</div></div>
+</div>
+</section>
+
+<section data-types="Routine hygiene,Perio cons,Step 2 tx,Re-evaluation" style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">Discussion</h2>
+<span data-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Complete</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div data-types="Routine hygiene,Perio cons"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Explained findings and diagnosis. Explained perio disease and importance of plaque control. Motivated patient to actively take part in treatment. Explained importance of controlling risk factors and regular maintenance care.</div></div>
+<div data-types="Step 2 tx,Re-evaluation"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Plaque control level assessed and feedback given to patient</div></div>
+<div data-types="Re-evaluation"><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Overall significant improvement observed in terms of decreased probing depths and reduction of inflammation. Explained findings including residual pockets.</div></div>
+<div><button data-check="Encouraged smoking cessation / reduction" style="display:flex;align-items:center;gap:12px;background:none;border:none;padding:8px 0;font:400 15px/1 var(--sans);color:var(--ink);text-align:left;min-height:48px"><span style="width:22px;height:22px;flex:0 0 22px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);display:flex;align-items:center;justify-content:center;font:600 13px/1 var(--sans)">✓</span>Encouraged smoking cessation / reduction</button></div>
+<div data-types="Perio cons"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Explained tx plan: 1. Step 1 – OHI, control of risk factors, full mouth PMPR · 2. Step 2 – PMPR and subgingival instrumentation under LA in 2–4 visits · 3. Re-Evaluation · 4. Step 3 or Step 4 depending on stability. Prognosis, complications, recession and alternatives explained. Patient given chances to ask questions.</div>
+<div style="margin-top:14px"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Patient Decision ★</div><div data-group="consent" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Agreed to periodontal treatment" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Agreed to periodontal treatment</button>
+<button data-chip="Wants time to consider" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Wants time to consider</button></div></div></div>
+<div data-types="Re-evaluation"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Options Discussed ★</div><div data-group="reopts" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Stable — regular supportive perio tx" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Stable — regular supportive perio tx</button>
+<button data-chip="Unstable — Step 3 re-instrumentation" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Unstable — Step 3 re-instrumentation</button>
+<button data-chip="Refer for further perio tx" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Refer for further perio tx</button>
+<button data-chip="Palliative approach" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Palliative Approach</button></div></div>
+</div>
+</section>
+
+<section data-types="Routine hygiene,Perio cons,Step 2 tx,Re-evaluation" style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">Treatment</h2>
+<span data-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Complete</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Verbal consent for tx obtained; patient advised to raise their hand if they wish to stop at any point during treatment</div></div>
+<div data-types="Routine hygiene,Perio cons"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">OHI — Bristle ★</div><div data-group="bristle" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Soft" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Soft</button>
+<button data-chip="Medium" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Medium</button></div>
+<div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Advised gentle tooth-brushing 2x daily, last thing before sleep and another time in the day; emphasized cleaning along gum margin. ID cleaning at least 1x daily.</div></div>
+<div data-types="Step 2 tx,Re-evaluation"><button data-check="Oral hygiene reinforced — toothbrush and TePe reviewed" style="display:flex;align-items:center;gap:12px;background:none;border:none;padding:8px 0;font:400 15px/1 var(--sans);color:var(--ink);text-align:left;min-height:48px"><span style="width:22px;height:22px;flex:0 0 22px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);display:flex;align-items:center;justify-content:center;font:600 13px/1 var(--sans)">✓</span>Oral hygiene reinforced — toothbrush and TePe reviewed</button><button data-check="Reminded about influence of smoking" style="display:flex;align-items:center;gap:12px;background:none;border:none;padding:8px 0;font:400 15px/1 var(--sans);color:var(--ink2);text-align:left;min-height:48px"><span style="width:22px;height:22px;flex:0 0 22px;border:1px solid var(--rule);background:var(--card);color:var(--paper);display:flex;align-items:center;justify-content:center;font:600 13px/1 var(--sans)"></span>Reminded about influence of smoking</button></div>
+<div><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Demonstrated Plaque Removal With ★</div><div data-group="demo" data-mode="multi" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Toothbrush" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Toothbrush</button>
+<button data-chip="Floss" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Floss</button>
+<button data-chip="IDB / TePe" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">IDB / TePe</button></div>
+<div style="margin-top:11px"><div style="display:flex;flex-direction:column;gap:7px">
+<label for="TEPE" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">TePe Size(s)</label>
+<input id="TEPE" data-slot="TEPE" placeholder="e.g. 0.6 red, 0.8 blue" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div></div>
+<div data-types="Routine hygiene"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Full mouth PMPR using ultrasonic instrument and EMS airflow</div></div>
+<div data-types="Perio cons"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Full mouth 6ppc recorded</div></div>
+<div data-types="Step 2 tx"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Quadrant Treated ★</div><div data-group="quad" data-mode="multi" style="display:flex;gap:6px;font:500 14px/1.15 var(--mono)"><button data-chip="UR" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">UR</button><button data-chip="UL" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">UL</button><button data-chip="LR" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">LR</button><button data-chip="LL" style="flex:1;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">LL</button></div>
+<div style="margin-top:14px"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">LA Used ★</div><div data-group="la" data-mode="multi" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Topical" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Topical</button>
+<button data-chip="Infiltration" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Infiltration</button>
+<button data-chip="ID block" style="flex:1 1 auto;text-align:center;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">ID block</button></div></div>
+<div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">PMPR and subgingival instrumentation using ultrasonic instrument and EMS airflow; re-checked after debridement; haemostasis achieved</div></div>
+<div data-types="Re-evaluation"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">PMPR and subgingival instrumentation (where indicated) using ultrasonic instrument and EMS airflow; re-checked after debridement; haemostasis achieved</div></div>
+<div data-types="Routine hygiene,Step 2 tx,Re-evaluation"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">POI given – warned possible transient hypersensitivity, gum bleeding and soreness for a few days, which will subside with proper OH. Advised to persist with proper OH.</div></div>
+<div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Patient given the opportunity to ask questions and happy with today’s tx</div></div>
+<div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="FREE" style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Anything Else</label>
+<input id="FREE" data-slot="FREE" placeholder="optional — added at the end of Treatment" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div>
+</div>
+</section>
+
+<section data-types="Routine hygiene,Perio cons,Step 2 tx,Re-evaluation" style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">Tx NV</h2>
+<span data-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Complete</span>
+</div>
+<div style="display:flex;flex-direction:column;gap:18px">
+<div data-types="Routine hygiene"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Next Visit ★</div><div data-group="nvr" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Regular oral exam, OHI and PMPR by hygienist" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Regular oral exam, OHI and PMPR by hygienist</button>
+<button data-chip="Full periodontal assessment, tx planning and OHI" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Full periodontal assessment, tx planning and OHI</button></div></div>
+<div data-types="Perio cons"><div style="font:500 12px/1.4 var(--sans);color:var(--ink3);margin-bottom:8px">Standard wording — included automatically</div><div style="background:var(--surf);border-radius:4px;padding:10px 12px;font:400 12.5px/1.6 var(--sans);color:var(--ink2)">Step 2 TX — book the quadrant visits</div></div>
+<div data-types="Step 2 tx"><div style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);margin-bottom:8px">Next Visit ★</div><div data-group="nvs" data-mode="single" style="display:flex;flex-wrap:wrap;gap:7px;font:500 14px/1.15 var(--sans)"><button data-chip="Step 2 tx on next quadrant" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--selbd);background:var(--selbg);color:var(--ink);min-height:46px">Step 2 TX on next quadrant</button>
+<button data-chip="Re-evaluation" style="flex:1 1 auto;text-align:left;padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px">Re-Evaluation</button></div></div>
+<div data-types="Perio cons,Step 2 tx" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:11px"><div style="display:flex;flex-direction:column;gap:7px">
+<label for="NEXTQ" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Quadrant</label>
+<input id="NEXTQ" data-slot="NEXTQ" placeholder="e.g. UL" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="VISITN" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Visit</label>
+<input id="VISITN" data-slot="VISITN" placeholder="e.g. 2" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="VISITS" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Of</label>
+<input id="VISITS" data-slot="VISITS" placeholder="e.g. 4" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div>
+<div><div style="display:flex;flex-direction:column;gap:7px">
+<label for="RECALL" data-lab style="font:500 12.5px/1.4 var(--sans);color:var(--ink2)">Recall Interval</label>
+<input id="RECALL" data-slot="RECALL" placeholder="e.g. 6 months / 3/12" style="font:400 15px/1 var(--sans);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div></div>
+</div>
+</section>
+
+<section style="margin:30px 0 8px;border-top:1px solid var(--rule);padding-top:22px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">The Note</h2>
+<span data-total-inline style="font:500 12.5px/1.4 var(--sans);letter-spacing:0.08em;background:var(--blank);color:var(--ink);padding:7px 9px;white-space:nowrap">4 blanks</span>
+</div>
+<p style="font:400 12.5px/1.5 var(--sans);color:var(--ink2);margin:0 0 12px">Highlighted brackets are values you have not filled. You can copy a note with blanks — it just says so.</p>
+<pre data-preview style="margin:0;background:var(--surf);border:none;border-radius:4px;padding:14px 15px;font:400 12.5px/1.75 var(--mono);white-space:pre-wrap;overflow-wrap:break-word"></pre>
+<p style="font:400 11.5px/1.5 var(--sans);color:var(--ink2);margin:14px 0 0;padding-top:12px;border-top:1px solid var(--rule2)">This is a working copy. The practice's own system remains the legal record.</p>
+</section>
+
+</main>
+
+<!-- ===================== LIBRARY ===================== -->
+<main data-view="library" data-screen-label="Library" style="padding:0 18px;display:none">
+
+<div style="padding:18px 0 14px;border-bottom:1px solid var(--rule);display:flex;flex-direction:column;gap:12px">
+<div style="display:flex;align-items:baseline;justify-content:space-between">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0">Saved Notes</h2>
+<span style="font:500 12.5px/1.4 var(--sans);color:var(--ink2);white-space:nowrap" data-libcount>No notes yet</span>
+</div>
+<input data-search placeholder="Search References" style="font:500 15px/1 var(--mono);padding:13px 11px;background:var(--card);border:1px solid var(--rule);min-height:46px">
+</div>
+
+<div data-saved-list style="display:none"></div>
+
+<div data-empty style="display:none;padding:44px 0;flex-direction:column;gap:14px;align-items:flex-start">
+<span style="width:36px;height:1px;background:var(--ink2)"></span>
+<p style="font:600 21px/1.3 var(--sans);margin:0">No notes saved yet.</p>
+<p style="font:400 13.5px/1.55 var(--sans);color:var(--ink2);margin:0">Notes you save are filed by patient reference. Nothing leaves this browser, and nothing here replaces the practice's record.</p>
+</div>
+
+<div style="display:flex;gap:9px;padding:20px 0 6px;font:500 13px/1 var(--sans)">
+<button data-export-all style="padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink2);min-height:46px;white-space:nowrap">Export All</button>
+<button data-wipe style="padding:13px 13px;border:1px solid var(--rule);background:var(--card);color:var(--oxblood);min-height:46px;white-space:nowrap">Delete Everything</button>
+</div>
+<p style="font:400 11.5px/1.5 var(--sans);color:var(--ink2);margin:10px 0 0;padding-top:12px;border-top:1px solid var(--rule2)">This is a working copy. The practice's own system remains the legal record.</p>
+
+</main>
+
+<!-- ===================== DOC ===================== -->
+<main data-view="doc" data-screen-label="Download" style="padding:0 18px;display:none">
+
+<div style="padding:18px 0 14px;border-bottom:1px solid var(--rule)">
+<h2 style="font:600 21px/1.3 var(--sans);margin:0 0 8px">Download</h2>
+<p style="font:400 13px/1.5 var(--sans);color:var(--ink2);margin:0">Take the original document out of the browser — for your own records, or to attach where pasting isn't possible.</p>
+</div>
+
+<section style="padding:20px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:12px">
+<h3 style="font:600 17px/1.3 var(--sans);margin:0">Blank Template</h3>
+<span style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">Original</span>
+</div>
+<div style="background:var(--card);border:1px solid var(--rule);padding:13px">
+<div style="font:500 14px/1.3 var(--mono);word-break:break-all">hygienist_template_for_locum.docx</div>
+<div style="font:400 12px/1.4 var(--sans);color:var(--ink2);margin-top:6px">Word document · 93 kB · the unfilled source this tool was built from. Nothing you have entered is included.</div>
+<a href="uploads/hygienist_template_for_locum.docx" download="hygienist_template_for_locum.docx" style="display:flex;align-items:center;justify-content:center;width:100%;margin-top:13px;padding:15px 12px;border:1px solid var(--ink);background:var(--card);color:var(--ink);font:600 14.5px/1 var(--sans);min-height:50px;text-decoration:none">Download the Template (.docx)</a>
+</div>
+</section>
+
+<section style="padding:20px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:12px">
+<h3 style="font:600 17px/1.3 var(--sans);margin:0">This Note</h3>
+<span data-doc-total style="font:500 12.5px/1.4 var(--sans);letter-spacing:0.06em;background:var(--blank);color:var(--ink);padding:6px 8px;border-radius:3px;white-space:nowrap">4 blanks</span>
+</div>
+<div style="background:var(--card);border:1px solid var(--rule);padding:13px">
+<div style="font:500 14px/1.3 var(--mono);word-break:break-all" data-doc-name>P-40218_2026-08-27_routine-hygiene.txt</div>
+<div style="font:400 12px/1.4 var(--sans);color:var(--ink2);margin-top:6px">Plain text · assembled from the Note tab, blanks included as bracketed markers.</div>
+<button data-download="current" style="width:100%;margin-top:9px;padding:15px 12px;border:1px solid var(--accent);background:var(--accent);color:#FFFFFF;font:600 14.5px/1 var(--sans);min-height:50px">Download This Note</button>
+</div>
+</section>
+
+<section style="padding:24px 0 4px">
+<div style="display:flex;align-items:baseline;justify-content:space-between;padding-bottom:0;margin-bottom:14px;gap:12px">
+<h3 style="font:600 17px/1.3 var(--sans);margin:0">By Patient</h3>
+<span data-doc-count style="font:500 12px/1.4 var(--sans);color:var(--ink3);white-space:nowrap">One file per ref</span>
+</div>
+<div data-doc-list style="display:flex;flex-direction:column;gap:9px"></div>
+</section>
+
+<section style="padding:24px 0 4px">
+<div style="padding-bottom:0;margin-bottom:14px">
+<h3 style="font:600 17px/1.3 var(--sans);margin:0">Everything</h3>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px">
+<button data-export-all style="padding:15px 13px;border:1px solid var(--rule);background:var(--card);color:var(--ink);font:600 14px/1 var(--sans);text-align:left;border-radius:4px;min-height:50px">Export every note — one combined .txt</button>
+</div>
+<p style="font:400 12px/1.5 var(--sans);color:var(--ink2);margin:16px 0 0;padding-top:12px;border-top:1px solid var(--rule)">Downloaded files are a working copy. The practice's own system remains the legal record — check the file before it leaves the surgery.</p>
+</section>
+
+</main>
+
+<!-- ===================== STICKY ACTION BAR ===================== -->
+<div data-actionbar style="position:fixed;left:0;right:0;bottom:0;z-index:40;display:flex;justify-content:center;pointer-events:none">
+<div style="width:100%;max-width:520px;background:var(--paper);border-top:1px solid var(--ink);pointer-events:auto">
+<button data-jump style="width:100%;display:flex;align-items:center;gap:9px;background:none;border:none;border-bottom:1px solid var(--rule2);padding:9px 18px;text-align:left;min-height:40px">
+<span data-total style="font:500 12.5px/1.4 var(--sans);letter-spacing:0.06em;background:var(--blank);color:var(--ink);padding:6px 8px">4 blanks</span>
+<span data-blank-list style="font:400 12px/1.3 var(--mono);color:var(--ink2);flex:1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis">Bleeding · Calculus · TePe · Recall</span>
+<span style="font:500 12px/1.4 var(--sans);color:var(--ink3)">Go →</span>
+</button>
+<div style="display:flex;gap:8px;padding:10px 18px 16px">
+<button data-save style="flex:1;padding:14px 12px;border:1px solid var(--accent);background:var(--accent);color:#FFFFFF;font:600 14.5px/1 var(--sans);min-height:48px">Save Note</button>
+<button data-reset style="padding:14px 14px;border:1px solid var(--rule);background:var(--card);color:var(--oxblood);font:600 13.5px/1 var(--sans);min-height:48px">Reset</button>
+</div>
+</div>
+</div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:390,&quot;height&quot;:844},&quot;blankHighlight&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#FDECC8&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#FDECC8&quot;,&quot;#FFE4E4&quot;,&quot;#D3E5EF&quot;],&quot;section&quot;:&quot;Style&quot;},&quot;paperTone&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;white&quot;,&quot;offwhite&quot;],&quot;default&quot;:&quot;white&quot;,&quot;tsType&quot;:&quot;'white' | 'offwhite'&quot;,&quot;section&quot;:&quot;Style&quot;},&quot;primaryAction&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;blue&quot;,&quot;ink&quot;],&quot;default&quot;:&quot;blue&quot;,&quot;tsType&quot;:&quot;'blue' | 'ink'&quot;,&quot;section&quot;:&quot;Style&quot;}}">
+const BLANK_LABELS = { APPT:'Appointment Type', MH:'Medical History', SMOKING:'Smoking', BRUSH:'Toothbrush', INTERDENTAL:'Interdental', MGI:'MGI', OH:'OH Level', DXKIND:'Diagnosis', EXTENT:'Extent', STAGE:'Stage', GRADE:'Grade', STABILITY:'Stability', CONSRESP:'Perio Cons Response', CONSENT:'Patient Decision', REOPTS:'Options Discussed', BRISTLE:'Bristle', DEMO:'Demonstrated', QUAD:'Quadrant(s)', LA:'LA', NVR:'Next Visit', NVS:'Next Visit', BOP:'Bleeding', PLAQUE:'Plaque', CALCULUS:'Calculus', TEPE:'TePe Size', RECALL:'Recall', ALC:'Alcohol', CIG:'Cig/Day', YEARS:'Years', MHDETAIL:'MH Changes', NEXTQ:'Quadrant', VISITN:'Visit No.', VISITS:'Of', REF:'Ref', NURSE:'Nurse' };
+// ponytail: display only. data-chip stays the old spelling because it is the
+// key for every `type === ...` branch, every data-types spec and every note
+// already saved. Rename the keys instead if that indirection ever bites.
+const APPT_LABEL = { 'Routine hygiene': 'Routine Hygiene', 'Perio cons': 'Perio Cons', 'Step 2 tx': 'Step 2 TX', 'Re-evaluation': 'Re-Evaluation' };
+const apptLabel = (t) => APPT_LABEL[t] || t;
+const APPT_TEXT = {
+  'Routine hygiene':'For regular hygiene appt',
+  'Perio cons':'Referred for perio consultation and treatment planning',
+  'Step 2 tx':'Step 2 TX',
+  'Re-evaluation':'Re-Evaluation'
+};
+const RULE = (t) => '--------------------' + t + '-'.repeat(Math.max(3, 35 - t.length));
+
+class Component extends DCLogic {
+  componentDidMount(){
+    this.root = document;
+    document.addEventListener('click', (e) => this.onClick(e));
+    document.addEventListener('input', () => this.render());
+    this.applyProps();
+    // Repaint every control from data-on before anything is shown. The template
+    // ships some buttons with the selected styling baked into their inline
+    // style; without this they look answered while build() counts them blank.
+    this.repaintAll();
+    this.render();
+    this.renderLibrary();
+    this.renderDocList();
+    const search = document.querySelector('[data-search]');
+    if (search) search.addEventListener('input', () => this.renderLibrary());
+  }
+
+  componentDidUpdate(){ this.applyProps(); this.render(); }
+
+  applyProps(){
+    const p = this.props || {}, r = document.documentElement.style;
+    if (p.blankHighlight) r.setProperty('--blank', p.blankHighlight);
+    if (p.paperTone === 'mist'){
+      r.setProperty('--paper','#FBFBFA');
+      r.setProperty('--surf','#F1F1EF');
+    }
+    if (p.primaryAction === 'oxblood'){
+      const btn = document.querySelector('[data-save]');
+      if (btn){ btn.style.background = 'var(--ink)'; btn.style.borderColor = 'var(--ink)'; }
+    }
+  }
+
+  q(sel){ return (this.root || document).querySelectorAll(sel); }
+
+  onClick(e){
+    const chip = e.target.closest('[data-chip]');
+    if (chip){
+      const group = chip.closest('[data-group]');
+      const multi = group.getAttribute('data-mode') === 'multi';
+      if (multi){
+        const on = chip.getAttribute('data-on');
+        if (on) chip.removeAttribute('data-on'); else chip.setAttribute('data-on','1');
+      } else {
+        group.querySelectorAll('[data-chip]').forEach(c => c.removeAttribute('data-on'));
+        chip.setAttribute('data-on','1');
+      }
+      this.paintChips(group);
+      this.render();
+      return;
+    }
+    const check = e.target.closest('[data-check]');
+    if (check){
+      if (check.getAttribute('data-on')) check.removeAttribute('data-on'); else check.setAttribute('data-on','1');
+      this.paintCheck(check);
+      this.render();
+      return;
+    }
+    const tab = e.target.closest('[data-view-tab]');
+    if (tab){ this.setView(tab.getAttribute('data-view-tab')); return; }
+    const dl = e.target.closest('[data-download]');
+    if (dl){ this.download(dl); return; }
+    if (e.target.closest('[data-jump]')){ this.jumpToBlank(); return; }
+
+    if (e.target.closest('[data-copy]')){ this.copy(e.target.closest('[data-copy]')); return; }
+    const sv = e.target.closest('[data-save]');
+    if (sv){ this.save(sv); return; }
+    if (this.libAction(e)) return;
+    if (e.target.closest('[data-mic]')){ this.toggleMic(); return; }
+    if (e.target.closest('[data-fill]')){ this.fillFromTranscript(); return; }
+    if (e.target.closest('[data-clear-transcript]')){
+      const t = document.querySelector('[data-transcript]');
+      if (t) t.value = '';
+      this.report('Cleared.');
+      return;
+    }
+    const rs = e.target.closest('[data-reset]');
+    if (rs){
+      if (rs.dataset.armed){ this.nextPatient(); rs.removeAttribute('data-armed'); rs.textContent = 'Reset'; }
+      else {
+        rs.dataset.armed = '1'; rs.textContent = 'Clear all?';
+        setTimeout(() => { if (rs.dataset.armed){ rs.removeAttribute('data-armed'); rs.textContent = 'Reset'; } }, 3000);
+      }
+      return;
+    }
+  }
+
+  repaintAll(){
+    const d = this.root || document;
+    d.querySelectorAll('[data-group]').forEach(g => this.paintChips(g));
+    d.querySelectorAll('[data-check]').forEach(c => this.paintCheck(c));
+  }
+
+  paintChips(group){
+    const multi = group.getAttribute('data-mode') === 'multi';
+    group.querySelectorAll('[data-chip]').forEach(c => {
+      const on = !!c.getAttribute('data-on');
+      c.style.borderColor = on ? 'var(--selbd)' : 'var(--rule)';
+      c.style.background = on ? 'var(--selbg)' : 'var(--card)';
+      c.style.color = on ? 'var(--ink)' : 'var(--ink2)';
+      const label = c.getAttribute('data-chip');
+      if (multi) c.textContent = (on ? '✓ ' : '') + label;
+    });
+  }
+
+  paintCheck(btn){
+    const on = !!btn.getAttribute('data-on');
+    const box = btn.firstElementChild;
+    box.style.borderColor = on ? 'var(--accent)' : 'var(--rule)';
+    box.style.background = on ? 'var(--accent)' : 'var(--card)';
+    box.style.color = '#FFFFFF';
+    box.textContent = on ? '✓' : '';
+    btn.style.color = on ? 'var(--ink)' : 'var(--ink2)';
+  }
+
+  setView(view){
+    this.q('[data-view]').forEach(m => { m.style.display = m.getAttribute('data-view') === view ? 'block' : 'none'; });
+    const bar = document.querySelector('[data-actionbar]');
+    if (bar) bar.style.display = view === 'note' ? 'flex' : 'none';
+    document.querySelector('[data-app]') && (document.querySelector('[data-app]').style.paddingBottom = view === 'note' ? '112px' : '28px');
+    this.q('[data-view-tab]').forEach(t => {
+      const on = t.getAttribute('data-view-tab') === view;
+      t.style.color = on ? 'var(--ink)' : 'var(--ink3)';
+      t.style.borderBottomColor = on ? 'var(--ink)' : 'transparent';
+    });
+    window.scrollTo(0, 0);
+    this.render();
+  }
+
+  // A control only counts if every wrapper between it and its view is shown.
+  // Checked this way rather than via offsetParent so values survive while the
+  // whole Note view itself is hidden behind the Library/Download tabs.
+  vis(el){
+    if (!el) return false;
+    let n = el;
+    while (n && !n.hasAttribute('data-view')){
+      if (n.style && n.style.display === 'none') return false;
+      n = n.parentElement;
+    }
+    return true;
+  }
+  sel(group){
+    const g = (this.root || document).querySelector('[data-group="' + group + '"]');
+    if (!g || !this.vis(g)) return [];
+    return Array.from(g.querySelectorAll('[data-on]')).map(c => c.getAttribute('data-chip'));
+  }
+  one(group){ return this.sel(group)[0] || ''; }
+  val(slot){
+    const el = (this.root || document).querySelector('[data-slot="' + slot + '"]');
+    return el && this.vis(el) ? el.value.trim() : '';
+  }
+  checked(name){
+    const el = (this.root || document).querySelector('[data-check="' + name + '"]');
+    return !!(el && el.getAttribute('data-on') && this.vis(el));
+  }
+
+  build(){
+    const blanks = [];
+    const f = (slot) => {
+      const v = this.val(slot);
+      if (v) return v;
+      if (blanks.indexOf(slot) === -1) blanks.push(slot);
+      return '\u0001' + slot + '\u0002';
+    };
+    // ponytail: a chip group nobody touched is a blank, not a default. Reuses
+    // the slot-blank channel so counters, badges and [MARKERS] all follow.
+    const c = (group) => {
+      const v = this.one(group);
+      if (v) return v;
+      const k = group.toUpperCase();
+      if (blanks.indexOf(k) === -1) blanks.push(k);
+      return '\u0001' + k + '\u0002';
+    };
+    const type = this.one('appt') || 'Routine hygiene';
+    const L = [];
+    const ext = () => c('extent').toLowerCase();
+    const lc = (s) => /^[A-Z]{2,}/.test(s) ? s : s.charAt(0).toLowerCase() + s.slice(1);
+    const risks = () => { const r = this.sel('risk'); if (!r.length) return ''; return r.map(x => x === 'Smoking' ? 'smoker ' + f('CIG') + ' cig per day' : lc(x)).join('/ '); };
+
+    L.push('Appointment type: ' + (this.one('appt') ? (APPT_TEXT[type] || type) : c('appt')));
+    L.push('Nurse: ' + f('NURSE'));
+    L.push('Ref: ' + f('REF') + '    Date: 27/08/2026');
+
+    L.push(RULE('History'));
+    L.push('MH: ' + (this.one('mh') === 'Changes noted' ? 'changes noted – ' + f('MHDETAIL') : c('mh')));
+    const smoke = c('smoking');
+    L.push('FSH: ' + (smoke === 'Smoker'
+      ? 'smoker – ' + f('CIG') + ' cig/day for ' + f('YEARS') + ' years - advice given as per NICE guidelines'
+      : smoke.toLowerCase().replace('non-smoker','non smoker')));
+    L.push('Alcohol – ' + f('ALC') + ' units/week; advice given');
+    L.push('DH: ' + c('brush') + ' toothbrush, 2X daily with fluoride toothpaste');
+    L.push('Interdental cleaning – ' + lc(c('interdental')) + ', 1X daily');
+
+    L.push(RULE('Examination'));
+    L.push('E/O: facial symmetry, TMJs, lymph nodes, lips – NAD');
+    L.push('I/O: cheek, tongue, floor of mouth, hard and soft palate – NAD');
+    L.push('Gingivae – MGI ' + c('mgi'));
+    if (this.checked('Oral cancer screening carried out')) L.push('oral cancer screening carried out');
+    L.push('OH level – ' + c('oh').toLowerCase());
+    L.push('bleeding ' + f('BOP'));
+    L.push('plaque ' + f('PLAQUE'));
+    L.push('calculus ' + f('CALCULUS'));
+    if (type === 'Routine hygiene') L.push('Perio – BPE as charted; pockets as charted');
+    if (type === 'Perio cons') L.push('Perio – full perio charting done');
+    if (type === 'Re-evaluation') L.push('Perio – full perio chart updated');
+
+    if (type === 'Routine hygiene'){
+      L.push(RULE('Provisional periodontal diagnosis'));
+      L.push(ext() + ' ' + c('dxkind').toLowerCase());
+      const r = risks(); if (r) L.push('Risk factor: ' + r);
+      L.push('recommended perio cons for full periodontal charting and diagnosis with staging and grading next time, ' + c('consresp').toLowerCase());
+    } else if (type === 'Perio cons' || type === 'Re-evaluation'){
+      L.push(RULE(type === 'Perio cons' ? 'Periodontal diagnosis' : 'Current periodontal diagnosis'));
+      L.push(ext().charAt(0).toUpperCase() + ext().slice(1) + ' Stage ' + c('stage') + ' Grade ' + c('grade') + ', ' + c('stability').toLowerCase());
+      const r = risks(); if (r) L.push('risk factor(s): ' + r);
+    }
+
+    L.push(RULE('Discussion'));
+    if (type === 'Routine hygiene' || type === 'Perio cons')
+      L.push('Explained findings and diagnosis. Explained perio disease and importance of plaque control. Motivated patient to actively take part in treatment. Explained importance of controlling risk factors and regular maintenance care.');
+    if (type === 'Step 2 tx' || type === 'Re-evaluation')
+      L.push('Plaque control level assessed and feedback given to patient');
+    if (type === 'Re-evaluation')
+      L.push('Overall significant improvement observed in terms of decreased probing depths and reduction of inflammation. Explained findings including residual pockets.');
+    if (this.checked('Encouraged smoking cessation / reduction'))
+      L.push('Encouraged smoking cessation/reduction; reminded help is available whenever patient is ready to quit');
+    if (type === 'Perio cons'){
+      L.push('Explained tx plan as followings: 1. Step 1 - OHI, control of risk factors, full mouth PMPR; 2. Step 2 - PMPR and subgingival instrumentation under LA in 2-4 visits; 3. Re-Evaluation; 4. If unstable, Step 3 - re-instrumentation, OHI +/- referral if indicated; if stable, Step 4 - supportive periodontal care, OHI, regular PMPR.');
+      L.push('Explained that outcome could be unpredictable for teeth with doubtful or poor prognosis, and that outcome will be affected by the level of oral hygiene maintained by patient. Possible complications including transient increase in mobility, sensitivity and gingival recession explained. Other options discussed including palliative approach with routine hygiene appt. Patient given chances to ask questions and explained they did not have to decide today.');
+      L.push(!this.one('consent')
+        ? c('consent')
+        : this.one('consent') === 'Wants time to consider'
+        ? 'Patient wanted to take time to consider the options before making decision - explained no problem. Treatment plan may be valid for about 6 months, afterwards may need re-assessment/review of the plan if any update needed.'
+        : 'Patient understood and agreed to go for periodontal treatment');
+    }
+    if (type === 'Re-evaluation') L.push('Discussed tx options: ' + c('reopts'));
+
+    L.push(RULE('Treatment'));
+    L.push('Verbal consent for tx obtained; patient advised to raise their hand if they wish to stop at any point during treatment');
+    if (type === 'Routine hygiene' || type === 'Perio cons'){
+      L.push('OHI – Advised gentle tooth-brushing with ' + c('bristle').toLowerCase() + '-bristled toothbrush 2x daily last thing before sleep and another time in the day; emphasized cleaning along gum margin');
+      L.push('ID cleaning (' + lc(c('interdental')) + ') at least 1x daily');
+    } else {
+      if (this.checked('Oral hygiene reinforced — toothbrush and TePe reviewed')) L.push('Oral hygiene reinforced - reviewed use of toothbrush and interdental brush TePe');
+      if (this.checked('Reminded about influence of smoking')) L.push('Reminded about influence of smoking');
+    }
+    const demo = this.sel('demo').map(d => d === 'IDB / TePe' ? 'IDB' : d.toLowerCase());
+    const usesTepe = this.sel('demo').indexOf('IDB / TePe') > -1;
+    L.push('Demonstrated plaque removal with ' + (demo.length ? demo.join('/') : c('demo')) + (usesTepe ? ' Tepe ' + f('TEPE') : ''));
+    if (type === 'Routine hygiene') L.push('Full mouth PMPR using ultrasonic instrument and EMS airflow');
+    if (type === 'Perio cons') L.push('Full mouth 6ppc recorded');
+    if (type === 'Step 2 tx'){
+      const q = this.sel('quad');
+      const la = this.sel('la');
+      L.push('PMPR and subgingival instrumentation of Quadrant ' + (q.length ? q.join(', ') : c('quad')) + ' using ultrasonic instrument and EMS airflow; LA used: ' + (la.length ? la.join(', ').toLowerCase() : c('la')) + '; re-checked after debridement; haemostasis achieved;');
+    }
+    if (type === 'Re-evaluation')
+      L.push('PMPR and subgingival instrumentation (where indicated) using ultrasonic instrument and EMS airflow; re-checked after debridement; haemostasis achieved;');
+    if (type !== 'Perio cons')
+      L.push('POI given – warned possible transient hypersensitivity and gum bleeding and soreness for a few days, which will subside after a few days with proper OH; advised to persist with proper OH.');
+    L.push('Patient given the opportunity to ask questions and happy with today’s tx');
+    const free = this.val('FREE'); if (free) L.push(free);
+
+    L.push(RULE('Tx NV'));
+    if (type === 'Routine hygiene') L.push(c('nvr'));
+    if (type === 'Perio cons') L.push('Step 2 TX on Quadrant ' + f('NEXTQ') + ' (visit ' + f('VISITN') + ' of ' + f('VISITS') + ')');
+    if (type === 'Step 2 tx') L.push(!this.one('nvs')
+      ? c('nvs')
+      : this.one('nvs') === 'Re-evaluation'
+      ? 'Re-Evaluation'
+      : 'Step 2 TX on Quadrant ' + f('NEXTQ') + ' (visit ' + f('VISITN') + ' of ' + f('VISITS') + ')');
+    if (type === 'Re-evaluation') L.push('Supportive periodontal care, OHI, PMPR');
+    L.push('Recall interval ' + f('RECALL'));
+    return { text: L.join('\n'), blanks };
+  }
+
+  render(){
+    this.applyTypeVisibility();
+    const { text, blanks } = this.build();
+    const pre = (this.root || document).querySelector('[data-preview]');
+    if (pre){
+      const esc = text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+      pre.innerHTML = esc.replace(/\u0001([A-Za-z]+)\u0002/g, (m, k) =>
+        '<mark style="background:var(--blank);color:var(--ink);padding:1px 3px;font-weight:500">[' + k.toUpperCase() + ']</mark>');
+    }
+    this.plain = text.replace(/\u0001([A-Za-z]+)\u0002/g, (m, k) => '[' + k.toUpperCase() + ']');
+    const n = blanks.length;
+    const label = n === 0 ? 'No blanks' : n + (n === 1 ? ' blank' : ' blanks');
+    const docName = (this.root || document).querySelector('[data-doc-name]');
+    if (docName) docName.textContent = this.fileName();
+    (this.root || document).querySelectorAll('[data-total],[data-total-inline],[data-doc-total]').forEach(el => {
+      el.textContent = label;
+      el.style.background = n ? 'var(--blank)' : 'transparent';
+      el.style.border = n ? 'none' : '1px solid var(--rule)';
+      el.style.color = n ? 'var(--ink)' : 'var(--ink2)';
+    });
+    const list = (this.root || document).querySelector('[data-blank-list]');
+    if (list) list.textContent = n ? blanks.map(b => BLANK_LABELS[b] || b).join(' · ') : 'Ready to paste';
+    this.blanks = blanks;
+    const cc = document.querySelector('[data-choicecount]');
+    if (cc){
+      const stars = Array.from(document.querySelectorAll('[data-view="note"] [data-group]'))
+        .filter(g => g.getAttribute('data-group') !== 'appt' && this.vis(g)).length;
+      cc.textContent = stars + ' decisions';
+    }
+    this.paintSectionCounts();
+  }
+
+  applyTypeVisibility(){
+    const type = this.one('appt') || 'Routine hygiene';
+    (this.root || document).querySelectorAll('[data-types]').forEach(sec => {
+      const spec = sec.getAttribute('data-types');
+      let show;
+      if (spec === 'x-changes') show = this.one('mh') === 'Changes noted';
+      else show = spec.split(',').map(s => s.trim()).indexOf(type) > -1;
+      sec.style.display = show ? (sec.tagName === 'SECTION' ? 'block' : 'flex') : 'none';
+      if (show && sec.tagName !== 'SECTION' && !sec.style.flexDirection) sec.style.flexDirection = 'column';
+    });
+  }
+
+  // Section badges and field flags both read the builder's blanks list, so the
+  // two counters cannot drift apart or count anything the note doesn't flag.
+  paintSectionCounts(){
+    const blanks = this.blanks || [];
+    (this.root || document).querySelectorAll('[data-view="note"] section').forEach(sec => {
+      const badge = sec.querySelector('[data-count]');
+      if (!badge || sec.style.display === 'none') return;
+      const n = blanks.filter(b => sec.querySelector('[data-slot="' + b + '"],[data-group="' + b.toLowerCase() + '"]')).length;
+      badge.textContent = n ? n + ' blank' : 'Complete';
+      badge.style.color = n ? 'var(--ink)' : 'var(--ink3)';
+    });
+    (this.root || document).querySelectorAll('[data-slot]').forEach(i => {
+      const flagged = blanks.indexOf(i.getAttribute('data-slot')) > -1;
+      i.style.boxShadow = flagged ? 'inset 4px 0 0 var(--blank)' : 'none';
+      const lab = i.previousElementSibling;
+      if (lab && lab.hasAttribute('data-lab')){
+        if (!lab.dataset.base) lab.dataset.base = lab.textContent.replace(/ ▲$/,'');
+        lab.textContent = lab.dataset.base + (flagged ? ' ▲' : '');
+        lab.style.color = flagged ? 'var(--ink)' : 'var(--ink2)';
+      }
+    });
+  }
+
+  fileName(){
+    const ext = 'txt';
+    const ref = this.val('REF') || 'no-ref';
+    const type = (this.one('appt') || 'note').toLowerCase().replace(/[^a-z0-9]+/g,'-');
+    return ref + '_' + new Date().toISOString().slice(0,10) + '_' + type + '.' + ext;
+  }
+
+  // ---- Saving ----------------------------------------------------------
+  store(next){
+    const KEY = 'hygiene-notes-v1';
+    if (next){ try { localStorage.setItem(KEY, JSON.stringify(next)); } catch(e){} return next; }
+    try { return JSON.parse(localStorage.getItem(KEY) || '{}'); } catch(e){ return {}; }
+  }
+  snapshot(){
+    const chips = {}, slots = {}, checks = [];
+    document.querySelectorAll('[data-view="note"] [data-group]').forEach(g => {
+      chips[g.getAttribute('data-group')] = Array.from(g.querySelectorAll('[data-on]')).map(c => c.getAttribute('data-chip'));
+    });
+    document.querySelectorAll('[data-view="note"] [data-slot]').forEach(i => { slots[i.getAttribute('data-slot')] = i.value; });
+    document.querySelectorAll('[data-view="note"] [data-check]').forEach(c => { if (c.getAttribute('data-on')) checks.push(c.getAttribute('data-check')); });
+    return { chips, slots, checks };
+  }
+  restore(snap){
+    if (!snap) return;
+    Object.keys(snap.chips || {}).forEach(g => {
+      const grp = document.querySelector('[data-group="' + g + '"]');
+      if (!grp) return;
+      grp.querySelectorAll('[data-chip]').forEach(c => c.removeAttribute('data-on'));
+      (snap.chips[g] || []).forEach(label => {
+        const t = Array.from(grp.querySelectorAll('[data-chip]')).find(c => c.getAttribute('data-chip') === label);
+        if (t) t.setAttribute('data-on','1');
+      });
+      this.paintChips(grp);
+    });
+    Object.keys(snap.slots || {}).forEach(s => {
+      const el = document.querySelector('[data-slot="' + s + '"]');
+      if (el) el.value = snap.slots[s];
+    });
+    document.querySelectorAll('[data-check]').forEach(c => {
+      const want = (snap.checks || []).indexOf(c.getAttribute('data-check')) > -1;
+      if (want) c.setAttribute('data-on','1'); else c.removeAttribute('data-on');
+      this.paintCheck(c);
+    });
+    this.render();
+  }
+  save(btn){
+    const ref = this.val('REF');
+    if (!ref){
+      btn.textContent = 'Add a Patient Ref';
+      setTimeout(() => { btn.textContent = 'Save Note'; }, 2200);
+      const el = document.querySelector('[data-slot="REF"]');
+      if (el) el.focus();
+      return;
+    }
+    const n = (this.blanks || []).length;
+    const all = this.store();
+    const rec = {
+      id: Date.now(),
+      type: this.one('appt') || 'Routine hygiene',
+      date: new Date().toLocaleDateString('en-GB'),
+      time: new Date().toLocaleTimeString('en-GB', { hour:'2-digit', minute:'2-digit' }),
+      blanks: n,
+      text: this.plain || '',
+      snap: this.snapshot()
+    };
+    // A note opened from the Library (or already saved under this ref) is the
+    // same visit being corrected, so overwrite it and keep its original
+    // id/date/time. Changing the ref, or Reset, makes the next save a new note.
+    const list = all[ref] = all[ref] || [];
+    const at = this.editing && this.editing.ref === ref
+      ? list.findIndex(x => String(x.id) === String(this.editing.id))
+      : -1;
+    if (at > -1){
+      rec.id = list[at].id; rec.date = list[at].date; rec.time = list[at].time;
+      list[at] = rec;
+    } else {
+      list.unshift(rec);
+    }
+    this.editing = { ref, id: rec.id };
+    this.store(all);
+    this.renderLibrary();
+    this.renderDocList();
+    const verb = at > -1 ? '✓ Updated ' : '✓ Saved to ';
+    btn.textContent = n ? verb + ref + ' — ' + n + ' blanks' : verb + ref;
+    btn.style.background = '#448361'; btn.style.borderColor = '#448361';
+    setTimeout(() => {
+      btn.textContent = 'Save Note';
+      btn.style.background = 'var(--accent)'; btn.style.borderColor = 'var(--accent)';
+    }, 2200);
+  }
+
+  renderLibrary(){
+    const all = this.store();
+    const refs = Object.keys(all).filter(r => (all[r] || []).length);
+    const host = document.querySelector('[data-saved-list]');
+    if (!host) return;
+    const empty = document.querySelector('[data-empty]');
+    if (!refs.length){
+      host.style.display = 'none';
+      host.innerHTML = '';
+      if (empty){ empty.style.display = 'flex'; empty.style.flexDirection = 'column'; }
+      const c = document.querySelector('[data-libcount]');
+      if (c) c.textContent = 'No notes yet';
+      return;
+    }
+    if (empty) empty.style.display = 'none';
+    host.style.display = 'block';
+    const q = (document.querySelector('[data-search]') || {}).value || '';
+    const shown = refs.filter(r => r.toLowerCase().indexOf(q.trim().toLowerCase()) > -1).sort();
+    const total = refs.reduce((s, r) => s + all[r].length, 0);
+    const c = document.querySelector('[data-libcount]');
+    if (c) c.textContent = refs.length + (refs.length === 1 ? ' ref · ' : ' refs · ') + total + (total === 1 ? ' note' : ' notes');
+    host.innerHTML = shown.map(ref => `
+<div style="border-bottom:1px solid var(--rule);padding:16px 0">
+<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+<span style="font:500 16px/1 var(--mono);letter-spacing:0.02em">${ref}</span>
+<span style="font:400 12.5px/1 var(--sans);color:var(--ink3);white-space:nowrap">${all[ref].length} ${all[ref].length === 1 ? 'visit' : 'visits'}</span>
+<span style="flex:1"></span>
+<button data-dlfolder="${ref}" style="font:500 12px/1 var(--sans);color:var(--ink2);padding:11px;border:1px solid var(--rule);background:var(--card);min-height:42px;white-space:nowrap">Download .txt</button>
+<button data-delfolder="${ref}" style="font:500 12px/1 var(--sans);color:var(--oxblood);padding:11px;border:1px solid var(--rule);background:var(--card);min-height:42px">Delete</button>
+</div>
+<div style="display:flex;flex-direction:column;gap:9px;margin-top:13px">
+${all[ref].map(v => `
+<div style="background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:12px 13px">
+<div style="display:flex;align-items:baseline;gap:9px">
+<span style="font:500 15px/1.3 var(--sans);flex:1">${apptLabel(v.type)}</span>
+<span style="font:400 12px/1 var(--mono);color:var(--ink2);white-space:nowrap">${v.date} · ${v.time || ''}</span>
+</div>
+<div style="display:flex;align-items:center;gap:8px;margin-top:11px">
+${v.blanks ? `<span style="font:500 11.5px/1 var(--sans);background:var(--blank);color:var(--ink);padding:6px 7px;border-radius:3px;white-space:nowrap">${v.blanks} blanks</span>` : ''}
+<span style="flex:1"></span>
+<button data-open="${ref}|${v.id}" style="font:600 12.5px/1 var(--sans);padding:11px 13px;border:1px solid var(--rule);background:var(--card);border-radius:4px;min-height:42px">Open</button>
+<button data-copysaved="${ref}|${v.id}" style="font:600 12.5px/1 var(--sans);padding:11px 13px;border:1px solid var(--accent);background:var(--accent);color:#FFFFFF;border-radius:4px;min-height:42px">Copy</button>
+<button data-delnote="${ref}|${v.id}" style="font:600 12.5px/1 var(--sans);padding:11px;border:1px solid var(--rule);background:var(--card);color:var(--oxblood);border-radius:4px;min-height:42px">Del</button>
+</div>
+</div>`).join('')}
+</div>
+</div>`).join('');
+  }
+
+  libAction(e){
+    const find = (attr) => { const el = e.target.closest('[' + attr + ']'); return el ? { el, v: el.getAttribute(attr) } : null; };
+    const all = this.store();
+    let hit;
+    if ((hit = find('data-open'))){
+      const [ref, id] = hit.v.split('|');
+      const v = (all[ref] || []).find(x => String(x.id) === id);
+      if (v){
+        const r = document.querySelector('[data-slot="REF"]');
+        if (r) r.value = ref;
+        this.editing = { ref, id: v.id };
+        this.restore(v.snap);
+        this.setView('note');
+      }
+      return true;
+    }
+    if ((hit = find('data-copysaved'))){
+      const [ref, id] = hit.v.split('|');
+      const v = (all[ref] || []).find(x => String(x.id) === id);
+      if (v){
+        const btn = hit.el;
+        const done = () => { btn.textContent = '✓'; setTimeout(() => { btn.textContent = 'Copy'; }, 1600); };
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(v.text).then(done, done); else done();
+      }
+      return true;
+    }
+    if ((hit = find('data-delnote'))){
+      const [ref, id] = hit.v.split('|');
+      if (!hit.el.dataset.armed){
+        hit.el.dataset.armed = '1'; hit.el.textContent = 'Sure?';
+        setTimeout(() => { if (hit.el.dataset.armed){ delete hit.el.dataset.armed; hit.el.textContent = 'Del'; } }, 3000);
+        return true;
+      }
+      all[ref] = (all[ref] || []).filter(x => String(x.id) !== id);
+      if (!all[ref].length) delete all[ref];
+      if (this.editing && this.editing.ref === ref && String(this.editing.id) === id) this.editing = null;
+      this.store(all); this.renderLibrary(); this.renderDocList();
+      return true;
+    }
+    if ((hit = find('data-delfolder'))){
+      const ref = hit.v;
+      if (!hit.el.dataset.armed){
+        hit.el.dataset.armed = '1'; hit.el.textContent = 'Delete all ' + ref + '?';
+        setTimeout(() => { if (hit.el.dataset.armed){ delete hit.el.dataset.armed; hit.el.textContent = 'Delete'; } }, 3000);
+        return true;
+      }
+      delete all[ref];
+      this.store(all); this.renderLibrary(); this.renderDocList();
+      return true;
+    }
+    if ((hit = find('data-dlfolder'))){
+      const ref = hit.v;
+      this.saveBlob(ref + '.txt', this.folderText(ref, all[ref]));
+      return true;
+    }
+    if ((hit = find('data-export-all'))){ this.exportAll(hit.el); return true; }
+    if ((hit = find('data-wipe'))){ this.wipe(hit.el); return true; }
+    return false;
+  }
+
+  saveBlob(name, text){
+    const blob = new Blob([text], { type: 'text/plain' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = name;
+    document.body.appendChild(a); a.click(); a.remove();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  }
+
+  // ---- Dictation -------------------------------------------------------
+  report(msg){
+    const p = document.querySelector('[data-fill-report]');
+    if (p) p.textContent = msg;
+  }
+  micState(txt, live){
+    const s = document.querySelector('[data-dictate-state]');
+    if (s){ s.textContent = txt; s.style.color = live ? '#D44C47' : 'var(--ink3)'; }
+    const b = document.querySelector('[data-mic]');
+    if (b){
+      b.textContent = live ? '■ Stop' : '● Record';
+      b.style.borderColor = live ? '#D44C47' : 'var(--rule)';
+      b.style.color = live ? '#D44C47' : 'var(--ink)';
+    }
+  }
+  toggleMic(){
+    if (this.rec){ this.rec.stop(); return; }
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    const ta = document.querySelector('[data-transcript]');
+    if (!SR){
+      this.micState('Not available', false);
+      this.report('This browser will not give the page a microphone. Type or paste the conversation above, then Fill fields.');
+      if (ta) ta.focus();
+      return;
+    }
+    const rec = new SR();
+    rec.lang = 'en-GB';
+    rec.continuous = true;
+    rec.interimResults = true;
+    this.base = ta ? ta.value : '';
+    rec.onresult = (ev) => {
+      let out = '';
+      for (let i = ev.resultIndex; i < ev.results.length; i++) out += ev.results[i][0].transcript;
+      if (ta) ta.value = (this.base + ' ' + out).trim();
+    };
+    rec.onend = () => {
+      this.rec = null;
+      this.micState('Off', false);
+      if (ta && ta.value.trim()) this.fillFromTranscript();
+    };
+    rec.onerror = (e) => {
+      this.rec = null;
+      this.micState('Off', false);
+      this.report(e.error === 'not-allowed'
+        ? 'Microphone blocked on this machine. Type or paste the conversation above instead.'
+        : 'Recording stopped (' + e.error + ').');
+    };
+    rec.start();
+    this.rec = rec;
+    this.micState('Listening…', true);
+    this.report('Listening. Say the findings in any order; stop when you are done.');
+  }
+
+  setChip(group, label){
+    const g = document.querySelector('[data-group="' + group + '"]');
+    if (!g || !this.vis(g)) return false;
+    const target = Array.from(g.querySelectorAll('[data-chip]'))
+      .find(c => c.getAttribute('data-chip').toLowerCase() === label.toLowerCase());
+    if (!target) return false;
+    if (g.getAttribute('data-mode') !== 'multi')
+      g.querySelectorAll('[data-chip]').forEach(c => c.removeAttribute('data-on'));
+    target.setAttribute('data-on','1');
+    this.paintChips(g);
+    return true;
+  }
+  setSlot(slot, value){
+    const el = document.querySelector('[data-slot="' + slot + '"]');
+    if (!el || !this.vis(el)) return false;
+    el.value = value;
+    return true;
+  }
+
+  fillFromTranscript(){
+    const ta = document.querySelector('[data-transcript]');
+    const raw = ta ? ta.value : '';
+    if (!raw.trim()){ this.report('Nothing to read yet — record, or type the conversation above.'); return; }
+    const t = raw.toLowerCase().replace(/[’']/g, "'");
+    const filled = [];
+    const chip = (g, label, name) => { if (this.setChip(g, label)) filled.push(name || label); };
+    const slot = (s, v, name) => { if (this.setSlot(s, v)) filled.push(name); };
+    const m = (re) => { const r = t.match(re); return r || null; };
+    const ROMAN = { '1':'I','2':'II','3':'III','4':'IV','i':'I','ii':'II','iii':'III','iv':'IV' };
+
+    let r;
+    if ((r = m(/\b(routine|perio cons|step 2|re-?eval\w*)\b/)))
+      chip('appt', r[1].startsWith('routine') ? 'Routine hygiene' : r[1].startsWith('perio') ? 'Perio cons' : r[1].startsWith('step') ? 'Step 2 tx' : 'Re-evaluation', 'Appointment Type');
+    if ((r = m(/\b(non[- ]?smoker|ex[- ]?smoker|smoker)\b/)))
+      chip('smoking', r[1].replace(/^non[- ]?/, 'Non-').replace(/^ex[- ]?/, 'Ex-').replace(/^s/, 'S'), 'Smoking');
+    if ((r = m(/(\d+)\s*(?:cig\w*)\s*(?:a|per)?\s*day/))) slot('CIG', r[1], 'Cig/Day');
+    if ((r = m(/(?:for\s*)?(\d+)\s*years?/))) slot('YEARS', r[1], 'Years');
+    if ((r = m(/(\d+(?:\.\d+)?)\s*units/))) slot('ALC', r[1], 'Alcohol');
+    if ((r = m(/\b(electric|manual)\b/))) chip('brush', r[1].charAt(0).toUpperCase() + r[1].slice(1), 'Toothbrush');
+    if ((r = m(/\b(flossette|floss|idb|interdental brush|water flosser)\b/)))
+      chip('interdental', /idb|interdental brush/.test(r[1]) ? 'IDB' : r[1] === 'floss' ? 'Floss' : r[1] === 'flossette' ? 'Flossette' : 'Water flosser', 'Interdental');
+    if ((r = m(/mgi\s*(\d)/))) chip('mgi', r[1], 'MGI');
+    if ((r = m(/\b(?:oh|oral hygiene)(?:\s*level)?\s*(?:is|was|–|-|:)?\s*(good|average|inadequate)\b/)) || (r = m(/\b(inadequate)\b/))) chip('oh', r[1].charAt(0).toUpperCase() + r[1].slice(1), 'OH Level');
+    if ((r = m(/(?:bop|bleeding)[^\d%]{0,14}(\d+)\s*(?:%|per ?cent)?/))) slot('BOP', 'BOP ' + r[1] + '%', 'Bleeding');
+    if ((r = m(/plaque[^\d%]{0,14}(\d+)\s*(?:%|per ?cent)?/))) slot('PLAQUE', r[1] + '%', 'Plaque');
+    if ((r = m(/calculus\s*(?:is|was|–|-|:)?\s*((?:[^.;\n]|\.(?=\d))+)/))) slot('CALCULUS', r[1].trim().slice(0, 90), 'Calculus');
+    if ((r = m(/\b(localised|localized|generalised|generalized|molar[- ]incisor)\b/)))
+      chip('extent', /molar/.test(r[1]) ? 'Molar-incisor pattern' : /local/.test(r[1]) ? 'Localised' : 'Generalised', 'Extent');
+    if ((r = m(/stage\s*(iv|iii|ii|i|[1-4])\b/))) chip('stage', ROMAN[r[1]] || r[1].toUpperCase(), 'Stage');
+    if ((r = m(/grade\s*([abc])\b/))) chip('grade', r[1].toUpperCase(), 'Grade');
+    if ((r = m(/\b(currently unstable|unstable|in remission|stable)\b/)))
+      chip('stability', /unstable/.test(r[1]) ? 'Currently unstable' : /remission/.test(r[1]) ? 'In remission' : 'Stable', 'Stability');
+    if ((r = m(/\b(soft|medium)[- ]?bristl\w*/))) chip('bristle', r[1].charAt(0).toUpperCase() + r[1].slice(1), 'Bristle');
+    if ((r = m(/tepe\s*(?:sizes?\w*)?\s*[:\-–]?\s*(\d+(?:\.\d+)?\s*[a-z]+(?:\s*(?:,|and)\s*\d+(?:\.\d+)?\s*[a-z]+)*)/)))
+      slot('TEPE', r[1].trim().replace(/\s+and\s+/g, ', '), 'TePe Size');
+    if ((r = m(/(?:recall|review)(?:\s*interval)?\s*(?:in|of|–|-|:)?\s*([0-9]+\s*(?:months?|weeks?|\/\s*12)|\d\/12)/))) slot('RECALL', r[1].trim(), 'Recall');
+    const quads = t.match(/\b(ur|ul|lr|ll)\b/g);
+    if (quads) quads.forEach(q => chip('quad', q.toUpperCase(), 'Quadrant ' + q.toUpperCase()));
+    ['topical','infiltration'].forEach(k => { if (t.indexOf(k) > -1) chip('la', k.charAt(0).toUpperCase() + k.slice(1), 'LA ' + k); });
+    if (/\bid block|inferior dental block\b/.test(t)) chip('la', 'ID block', 'LA ID block');
+    if (/no change/.test(t)) chip('mh', 'No change from last visit reported', 'MH');
+
+    this.render();
+    this.report(filled.length
+      ? 'Filled ' + filled.length + ': ' + filled.join(', ') + '. Check each one before saving.'
+      : 'Could not find anything to fill. Try naming the values, e.g. “BOP 28%”, “MGI 2”, “recall 6 months”.');
+  }
+
+  folderText(ref, list){
+    return (list || []).map(v => apptLabel(v.type) + ' — ' + v.date + (v.time ? ' ' + v.time : '') + '\n\n' + v.text)
+      .join('\n\n\n========================================\n\n\n');
+  }
+
+  renderDocList(){
+    const host = document.querySelector('[data-doc-list]');
+    if (!host) return;
+    const all = this.store();
+    const refs = Object.keys(all).filter(r => (all[r] || []).length).sort();
+    const count = document.querySelector('[data-doc-count]');
+    const total = refs.reduce((n, r) => n + all[r].length, 0);
+    if (count) count.textContent = refs.length ? refs.length + (refs.length === 1 ? ' ref · ' : ' refs · ') + total + (total === 1 ? ' note' : ' notes') : 'Nothing saved yet';
+    if (!refs.length){
+      host.innerHTML = '<p style="font:400 13px/1.5 var(--sans);color:var(--ink2);margin:0">Saved notes appear here, one file per patient reference.</p>';
+      return;
+    }
+    host.innerHTML = refs.map(ref => {
+      const kb = Math.max(1, Math.round(this.folderText(ref, all[ref]).length / 1024 * 10) / 10);
+      return `<div style="background:var(--card);border:1px solid var(--rule);border-radius:4px;padding:12px 13px;display:flex;align-items:center;gap:11px">
+<div style="flex:1;min-width:0">
+<div style="font:500 15px/1 var(--mono);letter-spacing:0.02em">${ref}</div>
+<div style="font:400 12px/1.3 var(--sans);color:var(--ink2);margin-top:5px">${all[ref].length} ${all[ref].length === 1 ? 'visit' : 'visits'} · ${kb} kB</div>
+</div>
+<button data-dlfolder="${ref}" style="padding:12px 13px;border:1px solid var(--rule);background:var(--card);border-radius:4px;font:600 12.5px/1 var(--sans);min-height:44px">Download</button>
+</div>`;
+    }).join('');
+  }
+
+  exportAll(btn){
+    const all = this.store();
+    const refs = Object.keys(all).filter(r => (all[r] || []).length).sort();
+    if (!refs.length){
+      const was = btn.textContent;
+      btn.textContent = 'Nothing saved yet';
+      setTimeout(() => { btn.textContent = was; }, 2000);
+      return;
+    }
+    const body = refs.map(r => '################  ' + r + '  ################\n\n' + this.folderText(r, all[r])).join('\n\n\n');
+    this.saveBlob('hygiene-notes_all_' + new Date().toISOString().slice(0,10) + '.txt', body);
+  }
+
+  wipe(btn){
+    if (!btn.dataset.armed){
+      btn.dataset.armed = '1';
+      btn.textContent = 'Delete every saved note?';
+      setTimeout(() => { if (btn.dataset.armed){ delete btn.dataset.armed; btn.textContent = 'Delete Everything'; } }, 3000);
+      return;
+    }
+    delete btn.dataset.armed;
+    btn.textContent = 'Delete Everything';
+    this.store({});
+    this.renderLibrary();
+    this.renderDocList();
+  }
+
+  download(btn){
+    // Only ever the note currently in the form; per-patient files go via data-dlfolder.
+    this.saveBlob(this.fileName(), this.plain || '');
+    const label = btn.textContent;
+    btn.textContent = '✓ Downloaded';
+    setTimeout(() => { btn.textContent = label; }, 1800);
+  }
+
+  jumpToBlank(){
+    const first = (this.blanks || [])[0];
+    if (!first) return;
+    const el = (this.root || document).querySelector('[data-slot="' + first + '"]');
+    if (!el) return;
+    const y = el.getBoundingClientRect().top + window.scrollY - 140;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+    el.focus({ preventScroll: true });
+  }
+
+  copy(btn){
+    const text = this.plain || '';
+    const done = () => {
+      const n = (this.blanks || []).length;
+      btn.textContent = n ? '✓ Copied — ' + n + ' blanks' : '✓ Copied';
+      btn.style.background = '#448361';
+      btn.style.borderColor = '#448361';
+      setTimeout(() => { btn.textContent = 'Copy'; btn.style.background = 'var(--accent)'; btn.style.borderColor = 'var(--accent)'; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, done);
+    else done();
+  }
+
+  nextPatient(){
+    const d = this.root || document;
+    d.querySelectorAll('[data-slot]').forEach(i => { i.value = ''; });
+    // the dictation is the previous patient's words - it must not survive Reset
+    const ta = d.querySelector('[data-transcript]');
+    if (ta) ta.value = '';
+    d.querySelectorAll('[data-on]').forEach(c => c.removeAttribute('data-on'));
+    this.editing = null;
+    this.repaintAll();
+    this.render();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  renderVals(){ return {}; }
+}
+
+</script>
+</body>
+</html>

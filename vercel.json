@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/note.dc.html",
+      "permanent": false
+    }
+  ]
+}
