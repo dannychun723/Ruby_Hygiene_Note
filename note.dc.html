@@ -1023,7 +1023,7 @@ ${v.blanks ? `<span style="font:500 11.5px/1 var(--sans);background:var(--blank)
     }
   }
   toggleMic(){
-    if (this.rec){ this.rec.stop(); return; }
+    if (this.rec){ this.micWanted = false; this.rec.stop(); return; }
     const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
     const ta = document.querySelector('[data-transcript]');
     if (!SR){
@@ -1032,32 +1032,49 @@ ${v.blanks ? `<span style="font:500 11.5px/1 var(--sans);background:var(--blank)
       if (ta) ta.focus();
       return;
     }
-    const rec = new SR();
-    rec.lang = 'en-GB';
-    rec.continuous = true;
-    rec.interimResults = true;
+    this.micWanted = true;
     this.base = ta ? ta.value : '';
-    rec.onresult = (ev) => {
-      let out = '';
-      for (let i = ev.resultIndex; i < ev.results.length; i++) out += ev.results[i][0].transcript;
-      if (ta) ta.value = (this.base + ' ' + out).trim();
+    const listen = () => {
+      const rec = new SR();
+      rec.lang = 'en-GB';
+      rec.continuous = true;
+      rec.interimResults = true;
+      // Finished phrases are appended to this.base once and never revisited;
+      // only the interim tail is redrawn. Previously the whole box was rebuilt
+      // from the newest chunk, so each phrase wiped the one before it.
+      rec.onresult = (ev) => {
+        if (ta && ta.value.indexOf(this.base) !== 0) this.base = ta.value.trim();
+        let interim = '';
+        for (let i = ev.resultIndex; i < ev.results.length; i++){
+          const t = (ev.results[i][0].transcript || '').trim();
+          if (!t) continue;
+          if (ev.results[i].isFinal) this.base = (this.base + ' ' + t).trim();
+          else interim += t;
+        }
+        if (ta) ta.value = (this.base + (interim ? ' ' + interim : '')).trim();
+      };
+      // Chrome ends the stream on every pause even with continuous set, so
+      // start a fresh one until the user actually taps Stop.
+      rec.onend = () => {
+        this.rec = null;
+        if (this.micWanted){ setTimeout(listen, 250); return; }
+        this.micState('Off', false);
+        if (ta && ta.value.trim()) this.fillFromTranscript();
+      };
+      rec.onerror = (e) => {
+        // a silent gap is not a failure - onend will pick it back up
+        if (e.error === 'no-speech' || e.error === 'aborted') return;
+        this.micWanted = false;
+        this.report(e.error === 'not-allowed'
+          ? 'Microphone blocked on this machine. Type or paste the conversation above instead.'
+          : 'Recording stopped (' + e.error + ').');
+      };
+      rec.start();
+      this.rec = rec;
     };
-    rec.onend = () => {
-      this.rec = null;
-      this.micState('Off', false);
-      if (ta && ta.value.trim()) this.fillFromTranscript();
-    };
-    rec.onerror = (e) => {
-      this.rec = null;
-      this.micState('Off', false);
-      this.report(e.error === 'not-allowed'
-        ? 'Microphone blocked on this machine. Type or paste the conversation above instead.'
-        : 'Recording stopped (' + e.error + ').');
-    };
-    rec.start();
-    this.rec = rec;
+    listen();
     this.micState('Listening…', true);
-    this.report('Listening. Say the findings in any order; stop when you are done.');
+    this.report('Listening — everything said is added to the box. Tap Stop when you are done.');
   }
 
   setChip(group, label){
